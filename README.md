@@ -6,7 +6,9 @@ sensor data into **behaviour** and **health** signals; a live dashboard shows
 the herd on a map with alerts for heat, illness, low feeding, falling yield,
 and fence breaks.
 
-![demo](.github/demo.png)
+**▶ [Live demo](https://hamzayslmn.github.io/Open-MilkSense/)** — runs entirely in your browser, no backend needed.
+
+[![demo](.github/demo.png)](https://hamzayslmn.github.io/Open-MilkSense/)
 
 ## How it works
 
