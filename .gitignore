@@ -1,0 +1,30 @@
+# Root ignores: ONLY genuinely-global, cross-language cruft.
+# Language-specific rules live where they belong — backend/.gitignore (Python) and
+# frontend/.gitignore (Node). Keeping the root minimal stops a stray rule like Python's
+# "lib/" from swallowing a source dir such as frontend/src/lib.
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+.ruff_cache/
+.mypy_cache/
+
+# Logs
+*.log
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# Dependency & cache dirs (safety nets — these names never collide with source)
+node_modules/
+__pycache__/
+*.py[codz]
+.venv/

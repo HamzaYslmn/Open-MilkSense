@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  /* obsidian — NEUTRAL charcoal (no blue cast) so colourful icons/emojis stand out; clearly layered */
+  --color-bg: #171717;
+  --color-bg2: #1c1c1c;
+  --color-panel: #1f1f1f;
+  --color-card: #262626;
+  --color-elev: #2e2e2e;
+  --color-line: #3a3a3a;
+  --color-line2: #4d4d4d;
+  /* text — neutral, soft white */
+  --color-ink: #ededed;
+  --color-dim: #a3a3a3;
+  --color-faint: #6f6f6f;
+  /* brand — vivid emerald-mint with a teal companion for gradients */
+  --color-accent: #34d399;
+  --color-accent2: #2dd4bf;
+  /* status — distinct, harmonised hues (pink / red / amber / violet / orange) */
+  --color-heat: #f472b6;
+  --color-health: #f87171;
+  --color-prod: #fbbf24;
+  --color-feeding: #a78bfa;
+  --color-fence: #fb923c;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0; color: var(--color-ink);
+  font-family: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  background:
+    radial-gradient(1100px 560px at 86% -12%, rgba(52, 211, 153, 0.08), transparent 56%),
+    radial-gradient(820px 520px at -8% 112%, rgba(52, 211, 153, 0.04), transparent 60%),
+    var(--color-bg);
+}
+* { -webkit-font-smoothing: antialiased; }
+::selection { background: rgba(52, 211, 153, 0.30); }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--color-line); border-radius: 8px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-line2); background-clip: content-box; }
+
+/* reusable surface bits, so the markup stays lean */
+.card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 42%),
+    var(--color-card);
+  border: 1px solid var(--color-line); border-radius: 15px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 14px 32px -22px rgba(0, 0, 0, 0.85);
+}
+.chip { display: inline-flex; align-items: center; gap: .35rem; background: var(--color-elev);
+  border: 1px solid var(--color-line); border-radius: 999px; padding: .26rem .62rem; font-size: 11px; color: var(--color-dim); white-space: nowrap; }
+.sec-h { display: flex; align-items: center; gap: .45rem; font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em; color: var(--color-dim); }
+/* emerald→cyan gradient fill, for the logo tile and the active buzzer */
+.grad-accent { background: linear-gradient(135deg, var(--color-accent), var(--color-accent2)); }
+
+/* cows glide between zones as the simulation advances */
+.cow-marker { transition: transform 1.4s linear; }
+@keyframes buzzpulse { 0%, 100% { opacity: .95; } 50% { opacity: .25; } }
+.ring-pulse { animation: buzzpulse 1.3s ease-in-out infinite; }
+@keyframes livedot { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+.live-dot { animation: livedot 1.6s ease-in-out infinite; }
+@keyframes slidein { from { transform: translateX(100%); opacity: .5; } to { transform: translateX(0); opacity: 1; } }
+.panel-in { animation: slidein .26s cubic-bezier(.2, .8, .2, 1); }
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { animation: fadein .18s ease-out; }

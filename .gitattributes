@@ -1,0 +1,12 @@
+# Normalise line endings: LF in the repo AND the working tree, on every OS.
+# This overrides per-machine core.autocrlf, so Windows no longer warns
+# "LF will be replaced by CRLF the next time Git touches it".
+* text=auto eol=lf
+
+# Binary assets — never run line-ending or text conversion on these.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.ico   binary
+*.onnx  binary
+*.pt    binary
